@@ -1,12 +1,5 @@
 rm -r Annotations/*
-rm -r pre_Annotations/*
 rm -r Images/*
-rm -r Split_Annotations/*
-rm -r Split_Images/*
 #rm -r gt_orig/*
-rm -r gt_convert/*
-rm -r GroundTruthImages/*
-rm -r Annotations/skip_gt/*
-rm -r rescaled/Images/*
-rm -r rescaled/Annotations/*
+#rm -r pre_Images/*
 rm -r gt_images/*
