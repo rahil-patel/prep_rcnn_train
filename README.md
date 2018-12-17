@@ -12,12 +12,11 @@ The Prepared Data will be stored in Images and Annotations
 
 # To Prepare Data for detectron training datat in coco json
 
-Convert the txt file data to individual files
+Convert the txt file data to individual XML files
 
 python toxml.py
 
-# Convert the XML files into A Single JSON file for COCO format
-
+Convert the xml files into a Single JSON file in COCO format
 python xml2json.py
 
 The following file created will be instances.json, which can be used for detectron training
