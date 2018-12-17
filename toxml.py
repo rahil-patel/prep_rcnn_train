@@ -15,7 +15,7 @@ from collections import OrderedDict
 #src = 'train_set'
 ann_src = "Annotations"
 img_src = "Images"
-
+xml_files = 'xml_files'
 txts = os.listdir(ann_src)
 imgs = os.listdir(img_src)
 txt_files = [x for x in txts if x.endswith('_gt.txt')]
@@ -62,7 +62,9 @@ def convert_pascal(df,txt,file_path):
 #     xml_string = xml.decode('utf-8')
     xml_string = re.sub(r"object\d+", "object", xml)
 #     print(xml_string)
-    output = open('xml_files/'+txt[:-4]+'.xml', 'w')
+    if not os.path.exists(xml_files):
+	os.makedirs(xml_files)
+    output = open(xml_files+'/'+txt[:-4]+'.xml', 'w')
     output.write(xml_string)
     output.close()
 
