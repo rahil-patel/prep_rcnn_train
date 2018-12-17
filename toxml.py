@@ -12,23 +12,25 @@ import re
 from collections import OrderedDict
 
 
-src = 'train_set'
+#src = 'train_set'
+ann_src = "Annotations"
+img_src = "Images"
 
-
-files = os.listdir(src)
-txt_files = [x for x in files if x.endswith('_gt.txt')]
-img_files = [x for x in files if x.endswith('.jpg')]
+txts = os.listdir(ann_src)
+imgs = os.listdir(img_src)
+txt_files = [x for x in txts if x.endswith('_gt.txt')]
+img_files = [x for x in imgs if x.endswith('.jpg')]
 print(img_files[1])
 
 
 def convert_pascal(df,txt,file_path):
 #     data = {}
     data = OrderedDict()
-    data['folder'] = src
+    data['folder'] = img_src
     image_name = txt.split('_gt.txt')[0]+'.jpg'
     data['filename'] = image_name
 #     data['path'] = 
-    image_path = os.path.join(src,image_name)
+    image_path = os.path.join(img_src,image_name)
     print(image_path)
     img = cv2.imread(image_path)
     h,w,c = img.shape
@@ -74,7 +76,7 @@ def convert_pascal(df,txt,file_path):
 #txt_files = ['220613_gt.txt']
 for txt in txt_files:
     print(txt)
-    file_path = os.path.join(src,txt)
+    file_path = os.path.join(ann_src,txt)
     try:
         df = pd.read_csv(file_path,sep=' ',header=None,dtype=str)
         df.columns = ['x','y','w','h','upc']
