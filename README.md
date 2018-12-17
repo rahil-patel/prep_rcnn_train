@@ -17,6 +17,7 @@ Convert the txt file data to individual XML files
 python toxml.py
 
 Convert the xml files into a Single JSON file in COCO format
+
 python xml2json.py
 
 The following file created will be instances.json, which can be used for detectron training
