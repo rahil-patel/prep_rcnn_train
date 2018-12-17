@@ -222,8 +222,8 @@ def split_count_process(split_option):
             		e=0
     
 
-    		print("Results After Augmentations::")
-    		counting(count_df)
+    	print("Results After Augmentations::")
+    	counting(count_df)
 
 def preprocess(df,img_shape):
     size_h,size_w,channels = img_shape
