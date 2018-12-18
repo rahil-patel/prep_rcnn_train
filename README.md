@@ -6,8 +6,13 @@ Put the Annotations in gt_orig folder and the Images in pre_Images folder
 First Clear all the previous files using
 
 ./clean.sh
+open the file run.sh
 
-To run the file use 
+vim run.sh
+
+and specify the parameters required in python rcnn_train.py, depending upon requirements
+
+Then run the file using
 
 ./run.sh
 
