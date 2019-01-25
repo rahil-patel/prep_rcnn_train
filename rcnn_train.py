@@ -257,7 +257,10 @@ def integration(split_s,gt_option,d_aug,split_option):
             df = pd.merge(df,brand,how='left',on='upc')
             df.dropna(inplace=True)
             #print(df)
-            if not df.empty:
+            if df.empty:
+                df.to_csv(dst,sep=" ",index=False,header=False,columns = ['x','y','w','h','brand'])
+                file_count += 1
+            elif not df.empty:
                 img_name = txt_file.split("_gt.txt")[0]+'.jpg'
                 #print(img_name)
                 img_path = os.path.join(img_src,img_name)
