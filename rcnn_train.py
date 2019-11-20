@@ -23,7 +23,7 @@ split_img = "Images"
 upc_brands = {}
 
 
-brand = pd.read_csv("upc_brand.txt",skiprows=0,sep=" ",dtype=str)
+brand = pd.read_csv("upc_brand.txt",header=None,sep=" ",dtype=str)
 brand.columns = ['upc','brand']
 brand.head()
 upc = brand['upc']
@@ -278,6 +278,8 @@ def integration(split_s,gt_option,d_aug,split_option):
                 count_df = count_df.append(df,ignore_index=True)
         except pd.io.common.EmptyDataError:
             e=0
+            #df.to_csv(dst,sep=" ",index=False,header=False,columns = ['x','y','w','h','brand'])
+            #file_count += 1
             #print(path, " is empty and has been skipped.")
     counting(count_df)
     print("Total Number of Files::",file_count)
